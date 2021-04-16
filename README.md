@@ -10,7 +10,7 @@
 
 ### Project Details
 * Bank simulation app with a test-driven development
-* Unit testing using JUnit5
+* Unit testing using JUnit 5
 
 #### File Encoding
 * UTF-8
