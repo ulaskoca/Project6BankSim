@@ -4,8 +4,6 @@ import java.lang.*;
 import banking.Bank;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import org.junit.jupiter.api.*;
 public class BankTest {
     Bank bank;
