@@ -8,22 +8,21 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SavingsAccountTest {
-    //Sets up static variable for the first account
-    double startingAccountAmount = 100.00;
-    String accountDescription = "Rainy Day Fund";
-    String customerFirstName = "Tim";
-    String customerLastName = "Johnson";
-    Bank theBigBank = new Bank("The Big Bank");
 
-    //This is the one variable that needs to change for the account
-    String accountTwoDescription = "Flight to the Moon";
-    //Sets up the customer using the variables above
-    Customer tim = new Customer(theBigBank, customerFirstName, customerLastName);
-    SavingsAccount savingsAccountOne = new SavingsAccount(tim,startingAccountAmount,accountDescription);
-    SavingsAccount savingsAccountTwo = new SavingsAccount(tim,startingAccountAmount,accountTwoDescription);
 
     @Test
     void deposit() {
+        //Sets up static variable for the first account
+        double startingAccountAmount = 100.00;
+        String accountDescription = "Rainy Day Fund";
+        String customerFirstName = "Tim";
+        String customerLastName = "Johnson";
+        Bank theBigBank = new Bank("The Big Bank");
+
+
+        //Sets up the customer using the variables above
+        Customer tim = new Customer(theBigBank, customerFirstName, customerLastName);
+        SavingsAccount savingsAccountOne = new SavingsAccount(tim,startingAccountAmount,accountDescription);
         //sets the static variables
         double amountToDeposit = 100.00;
         double accountStartingAmount = savingsAccountOne.getBalance();
@@ -37,6 +36,16 @@ class SavingsAccountTest {
 
     @Test
     void withdraw() {
+        //Sets up static variable for the first account
+        double startingAccountAmount = 100.00;
+        String accountDescription = "Rainy Day Fund";
+        String customerFirstName = "Tim";
+        String customerLastName = "Johnson";
+        Bank theBigBank = new Bank("The Big Bank");
+
+        //Sets up the customer using the variables above
+        Customer tim = new Customer(theBigBank, customerFirstName, customerLastName);
+        SavingsAccount savingsAccountOne = new SavingsAccount(tim,startingAccountAmount,accountDescription);
         //sets the static variables
         double amountToWithdraw = 100.00;
         double accountStartingAmount = savingsAccountOne.getBalance();
@@ -50,7 +59,16 @@ class SavingsAccountTest {
 
     @Test
     void addInterestTransaction() {
+        //Sets up static variable for the first account
+        double startingAccountAmount = 100.00;
+        String accountDescription = "Rainy Day Fund";
+        String customerFirstName = "Tim";
+        String customerLastName = "Johnson";
+        Bank theBigBank = new Bank("The Big Bank");
 
+        //Sets up the customer using the variables above
+        Customer tim = new Customer(theBigBank, customerFirstName, customerLastName);
+        SavingsAccount savingsAccountOne = new SavingsAccount(tim,startingAccountAmount,accountDescription);
         //Set up static variables for test
         double currentBalance = savingsAccountOne.getBalance();
         double amountToPayOff = 100.00;
