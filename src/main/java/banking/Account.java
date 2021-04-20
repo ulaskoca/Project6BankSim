@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
  * @author wpollock
  */
 public abstract class Account implements Comparable<Account> {
-    private static int nextId = 1;
+    private static final int nextId = 1;
 
     protected final Customer customer;
     protected final String accountId;
@@ -40,7 +40,7 @@ public abstract class Account implements Comparable<Account> {
 
     /**
      * If the account doesn't have sufficient funds for the specified
-     * amount, an insufficient funds fee (penalty) is charged on the
+     * amount, an insufficient f unds fee (penalty) is charged on the
      * account.
      * @param amount The amount to withdraw
      */
