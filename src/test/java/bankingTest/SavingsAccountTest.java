@@ -52,13 +52,13 @@ class SavingsAccountTest {
     void addInterestTransaction() {
 
         //Set up static variables for test
-        double CurrentInterestRate = savingsAccountOne.getDefaultInterestRate();
-        double amountToAdd = 10.00;
+        double currentBalance = savingsAccountOne.getBalance();
+        double amountToPayOff = 100.00;
 
         //attempts to add to the interest rate
-        savingsAccountOne.addInterestTransaction(amountToAdd);
+        savingsAccountOne.addInterestTransaction(amountToPayOff);
         //Checks the difference between the two
-        assertTrue(savingsAccountOne.getDefaultInterestRate() == CurrentInterestRate + amountToAdd, "Withdraw Test Results");
+        assertTrue(savingsAccountOne.getBalance() == currentBalance - amountToPayOff, "Payment Was not Successful Test Results");
 
 
     }
