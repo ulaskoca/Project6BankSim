@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AccountTest {
 
+    // TODO Create a pre-method for customer object creation
 
     @Test
     @DisplayName("Account.deposit Tests")
@@ -102,7 +103,17 @@ class AccountTest {
     void withdraw() {
         double startingAccountAmount = 200.00;
         // Create a dummy account
-        Account acct = new Account("Ulas", startingAccountAmount, "Personal Account");
+        Account acct = new Account("Ulas", startingAccountAmount, "Personal Account") { // TODO Customer object needs to be created
+            @Override
+            public void deposit(double amount) {
+                //Stub
+            }
+
+            @Override
+            public void withdraw(double amount) {
+                //Stub
+            }
+        };
         double accountCurrentBalance = acct.getBalance();
         // Withdraw money
         double amountToWithdraw = 200.00;
