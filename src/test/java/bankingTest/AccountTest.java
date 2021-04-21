@@ -35,7 +35,7 @@ class AccountTest {
         double amountToWithdraw = 200.00;
         acct.withdraw(amountToWithdraw);
         // Check the account balance and make sure withdraw worked
-        assertEquals(accountCurrentBalance - amountToWithdraw, acct.getBalance(), "Wirthdraw Test Results");
+        assertEquals(accountCurrentBalance - amountToWithdraw, acct.getBalance(), "Withdraw Test Results");
     }
 
     @Test
