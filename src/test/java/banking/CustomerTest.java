@@ -1,8 +1,5 @@
-package bankingTest;
+package banking;
 
-import banking.Bank;
-import banking.Customer;
-import banking.SavingsAccount;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,7 +18,7 @@ class CustomerTest {
         String desc = "Bug Money";
 
         //Because this was not a complete program this does not return the correct values
-        //This once an account is opened it should return a number or atleast return a savings account
+        //This once an account is opened it should return a number or at least return a savings account
         SavingsAccount timsSavingsAccount = tim.addSavingsAccount(initBal, desc);
 
         assertNotNull(timsSavingsAccount, "The account was not created, don don don");
@@ -60,7 +57,6 @@ class CustomerTest {
         String customerLastNameTwo = "Tohnson";
         Bank theBigBankTwo = new Bank("The Bigger Bank");
         Customer jim = new Customer(theBigBankTwo, customerFirstNameTwo, customerLastNameTwo);
-        tim.compareTo(jim);
 
         //Happy Path
         assertEquals(-1, tim.compareTo(jim), "The two Accounts are not identical but Match.");
@@ -70,7 +66,6 @@ class CustomerTest {
         customerLastNameTwo = "Johnson";
         theBigBankTwo = new Bank("The Big Bank");
         jim = new Customer(theBigBankTwo, customerFirstNameTwo, customerLastNameTwo);
-        tim.compareTo(jim);
 
         //Happy Path
         assertEquals(0, tim.compareTo(jim), "The two Accounts are identical but Not Match.");

@@ -1,6 +1,5 @@
-package bankingTest;
+package banking;
 
-import banking.Bank;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -38,7 +37,6 @@ public class BankTest {
 
     @Test
     void testGetCustomer() {
-
         //Sets up bank to be used
         Bank bank = new Bank("Lynx");
         final String customerId = "0";
@@ -47,7 +45,6 @@ public class BankTest {
         //Adds the customer and grabs the ID, then checks if the customer equals the id 0
         //Because I wanted one thing that functioned
         String s = bank.addCustomer(firstName, lastName);
-        assertEquals(s, bank.getCustomersAccounts(customerId), "Not The Same");
-
+        assertEquals(s, bank.getCustomer(customerId).toString(), "Not The Same");
     }
 }

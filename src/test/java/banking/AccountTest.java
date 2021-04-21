@@ -1,17 +1,12 @@
 // Testing certain account class methods
 
-package bankingTest;
+package banking;
 
-import banking.Account;
-import banking.Bank;
-import banking.Customer;
-import banking.SavingsAccount;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class AccountTest {
@@ -63,7 +58,7 @@ class AccountTest {
         account.deposit(amountToDeposit);
 
         //Checks the balance amount and compares it to the original amount
-        assertTrue(account.getBalance() == accountStartingAmount + amountToDeposit, "Deposit Test Results");
+        assertEquals(accountStartingAmount + amountToDeposit, account.getBalance(), "Deposit Test Results");
     }
 
     @Test
@@ -126,7 +121,7 @@ class AccountTest {
         };
 
         //Sets up the second account for testing against
-        Account accounttwo = new Account(tim, startingAccountAmount, accountTwoDescription) {
+        Account accountTwo = new Account(tim, startingAccountAmount, accountTwoDescription) {
             public void deposit(double amount) {
                 //Stub
             }
@@ -136,12 +131,12 @@ class AccountTest {
             }
         };
         //Checks and sets the initial variables to be compared later
-        double startingAmount = accounttwo.getBalance();
+        double startingAmount = accountTwo.getBalance();
         double transferAmount = 100.00;
         //Ensures there is a starting amount
         account.deposit(transferAmount);
-        Account.transfer(account, accounttwo, transferAmount);
-        assertEquals(startingAmount + transferAmount, accounttwo, "Transfer does not work ");
+        Account.transfer(account, accountTwo, transferAmount);
+        assertEquals(startingAmount + transferAmount, accountTwo.getBalance(), "Transfer does not work ");
     }
 
     @Test
@@ -149,7 +144,7 @@ class AccountTest {
     void withdraw() {
         double startingAccountAmount = 200.00;
         // Create a dummy account
-        Account acct = new Account("Ulas", startingAccountAmount, "Personal Account") { // TODO Customer object needs to be created
+        Account acct = new Account(testCustomer, startingAccountAmount, "Personal Account") {
             @Override
             public void deposit(double amount) {
                 //Stub
