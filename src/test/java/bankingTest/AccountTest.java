@@ -3,6 +3,7 @@
 package bankingTest;
 
 import banking.Account;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,6 +13,7 @@ class AccountTest {
     double startingAccountAmount = 200.00;
 
     @Test
+    @DisplayName("Account.deposit Tests")
     void deposit() {
         // Create a dummy account
         Account acct = new Account("Ulas", startingAccountAmount, "Personal Account");
@@ -24,6 +26,7 @@ class AccountTest {
     }
 
     @Test
+    @DisplayName("Account.withdraw Tests")
     void withdraw() {
         // Create a dummy account
         Account acct = new Account("Ulas", startingAccountAmount, "Personal Account");
@@ -36,6 +39,7 @@ class AccountTest {
     }
 
     @Test
+    @DisplayName("Account.transfer Tests")
     void transfer() {
         // Create two dummy accounts
         Account acct1 = new Account("Ulas", startingAccountAmount, "Personal Account");
