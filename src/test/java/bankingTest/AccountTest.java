@@ -1,8 +1,11 @@
+// Testing certain account class methods
+
 package bankingTest;
 
 import banking.Account;
 import banking.Bank;
 import banking.Customer;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,6 +16,7 @@ class AccountTest {
 
 
     @Test
+    @DisplayName("Account.deposit Tests")
     void testDeposit() {
         //Sets up static variable for the first account
         double startingAccountAmount = 100.00;
@@ -48,6 +52,7 @@ class AccountTest {
 
 
     @Test
+    @DisplayName("Account.transfer Tests")
     void transfer() {
         //Sets up static variable for the first account
         double startingAccountAmount = 100.00;
@@ -90,6 +95,20 @@ class AccountTest {
         account.deposit(transferAmount);
         Account.transfer(account, accounttwo, transferAmount);
         assertEquals(startingAmount + transferAmount, accounttwo, "Transfer does not work ");
+    }
+
+    @Test
+    @DisplayName("Account.withdraw Tests")
+    void withdraw() {
+        double startingAccountAmount = 200.00;
+        // Create a dummy account
+        Account acct = new Account("Ulas", startingAccountAmount, "Personal Account");
+        double accountCurrentBalance = acct.getBalance();
+        // Withdraw money
+        double amountToWithdraw = 200.00;
+        acct.withdraw(amountToWithdraw);
+        // Check the account balance and make sure withdraw worked
+        assertEquals(accountCurrentBalance - amountToWithdraw, acct.getBalance(), "Withdraw Test Results");
     }
 
 }
