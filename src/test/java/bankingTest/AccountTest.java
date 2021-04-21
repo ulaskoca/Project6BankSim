@@ -5,6 +5,8 @@ package bankingTest;
 import banking.Account;
 import banking.Bank;
 import banking.Customer;
+import banking.SavingsAccount;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +16,20 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AccountTest {
 
-    // TODO Create a pre-method for customer object creation
+    Bank testBank;
+    Customer testCustomer;
+    Account testAccount;
+    double initialBalance;
+    String testAccountDescription;
+
+    @BeforeEach
+    void createTestCustomer() {
+        testBank = new Bank("Test Bank");
+        testCustomer = new Customer(testBank, "User", "Test");
+        initialBalance = 0.0;
+        testAccount = new SavingsAccount(testCustomer, initialBalance, testAccountDescription);
+
+    }
 
     @Test
     @DisplayName("Account.deposit Tests")
@@ -49,6 +64,37 @@ class AccountTest {
 
         //Checks the balance amount and compares it to the original amount
         assertTrue(account.getBalance() == accountStartingAmount + amountToDeposit, "Deposit Test Results");
+    }
+
+    @Test
+    void testSmallDeposit() {
+        double expectedResult = 1.0;
+        double depositAmount = 1.0;
+        testAccount.deposit(depositAmount);
+        double actualResult = testAccount.getBalance();
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    void testLargeDeposit() {
+        double expectedResult = 10000.0;
+        double depositAmount = 10000.0;
+        testAccount.deposit(depositAmount);
+        double actualResult = testAccount.getBalance();
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    void testMultipleDeposits() {
+        double depositOne = 5.0;
+        double depositTwo = 10.0;
+        double depositThree = 35.0;
+        double expectedResult = depositOne + depositTwo + depositThree;
+        testAccount.deposit(depositOne);
+        testAccount.deposit(depositTwo);
+        testAccount.deposit(depositThree);
+        double actualResult = testAccount.getBalance();
+        assertEquals(expectedResult, actualResult);
     }
 
 
