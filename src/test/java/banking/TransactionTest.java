@@ -1,8 +1,5 @@
-package bankingTest;
+package banking;
 
-
-import banking.Transaction;
-import banking.TransactionType;
 import org.junit.jupiter.api.Test;
 import static banking.TransactionType.*;
 import static org.junit.jupiter.api.Assertions.*;

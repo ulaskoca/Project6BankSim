@@ -1,8 +1,5 @@
-package bankingTest;
+package banking;
 
-import banking.Bank;
-import banking.Customer;
-import banking.SavingsAccount;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -30,7 +27,7 @@ class SavingsAccountTest {
         savingsAccountOne.deposit(amountToDeposit);
 
         //Checks the balance amount and compares it to the original amount
-        assertTrue(savingsAccountOne.getBalance() == accountStartingAmount + amountToDeposit, "Deposit Test Results");
+        assertEquals(accountStartingAmount + amountToDeposit, savingsAccountOne.getBalance(), "Deposit Test Results");
 
     }
 
@@ -53,7 +50,7 @@ class SavingsAccountTest {
         savingsAccountOne.withdraw(amountToWithdraw);
 
         //Checks the balance amount and compares it to the original amount
-        assertTrue(savingsAccountOne.getBalance() == accountStartingAmount - amountToWithdraw, "Withdraw Test Results");
+        assertEquals(accountStartingAmount - amountToWithdraw, savingsAccountOne.getBalance(), "Withdraw Test Results");
 
     }
 
@@ -76,7 +73,7 @@ class SavingsAccountTest {
         //attempts to add to the interest rate
         savingsAccountOne.addInterestTransaction(amountToPayOff);
         //Checks the difference between the two
-        assertTrue(savingsAccountOne.getBalance() == currentBalance - amountToPayOff, "Payment Was not Successful Test Results");
+        assertEquals(currentBalance - amountToPayOff, savingsAccountOne.getBalance(), "Payment Was not Successful Test Results");
 
 
     }
